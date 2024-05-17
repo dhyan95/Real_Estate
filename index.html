@@ -3,25 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAD REALTY Company</title>
+    <title>DAD REALTY</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo-container">
-                <img src="Capture.JPG" alt="Company Logo" class="logo">
+                <img src="LOGO.png" alt="Company Logo" class="logo">
             </div>
         </nav>
     </header>
 
     <main>
-        <h1>LAXMI SAGAR BUNGLOWS</h1>
-        <p>Your content goes here.</p>
+        <h1>LAXMI SAGAR BUNGALOWS</h1>
+        <center><h3>Brochure</h3></center>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <img src="Image.jpeg" class="carousel-item active" alt="Image1">
+                <img src="Image2.jpeg" class="carousel-item" alt="Image2">
+                <img src="Area.jpeg" class="carousel-item" alt="Image3">
+                </div>
+            <button class="carousel-control prev">&#10094;</button>
+            <button class="carousel-control next">&#10095;</button>
+        </div>
+        <br><br>
+        <center><h3>Natural Outdoors</h3></center>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <img src="Scenery1.jpeg" class="carousel-item active" alt="Image1">
+                <img src="Scenery2.jpeg" class="carousel-item" alt="Image2">
+                <img src="Flowers1.jpeg" class="carousel-item" alt="Image3">
+                <img src="Flowers2.jpeg" class="carousel-item" alt="Image4">
+            </div>
+            <button class="carousel-control prev">&#10094;</button>
+            <button class="carousel-control next">&#10095;</button>
+        </div>
     </main>
 
     <footer>
         <p>&copy; DAD REALTY. All rights reserved.</p>
+        <p>Address: <a href="https://www.google.com/maps/place/Laxmi+Sagar+Bungalows+by+DAD+REALTY/@20.5096875,72.9233626,17z/data=!3m1!4b1!4m6!3m5!1s0x3be0c59d903b7205:0xf3196d420239054c!8m2!3d20.5096875!4d72.9259375!16s%2Fg%2F11sc9_v0lx?entry=ttu" target="_blank" rel="noopener">Take me here</a></p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousels = document.querySelectorAll('.carousel');
+
+            carousels.forEach(carousel => {
+                let currentSlide = 0;
+                const slides = carousel.querySelectorAll('.carousel-item');
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.remove('active');
+                        if (i === index) {
+                            slide.classList.add('active');
+                        }
+                    });
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                function prevSlide() {
+                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                    showSlide(currentSlide);
+                }
+
+                carousel.querySelector('.next').addEventListener('click', nextSlide);
+                carousel.querySelector('.prev').addEventListener('click', prevSlide);
+
+                // Initialize the first slide
+                showSlide(currentSlide);
+            });
+        });
+    </script>
 </body>
 </html>
